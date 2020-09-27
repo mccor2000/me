@@ -59,6 +59,6 @@ typings/
 
 # Transpiled JavaScript files from Typescript
 /dist
-
+dist/
 # Cache used by TypeScript's incremental build
 *.tsbuildinfo

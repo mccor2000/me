@@ -59,7 +59,6 @@ typings/
 
 # Transpiled JavaScript files from Typescript
 /dist
-./client/dist
 dist/
 
 # Cache built files

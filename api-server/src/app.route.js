@@ -7,7 +7,10 @@ import {
   deleteProject,
   getFile,
   comment,
-  feedback
+  feedback,
+  getAllQnAs,
+  addQnA,
+  updateQnA
 } from './controllers';
 
 const router = Router();
@@ -25,5 +28,8 @@ router
 router.route('/projects/:id/feedback').post(feedback);
 router.route('/projects/:id/file/:id').get(getFile);
 router.route('/projects/:id/file/:id/comment').post(comment);
+
+router.route('/qna').get(getAllQnAs).post(addQnA);
+router.route('/qna/:id').put(updateQnA);
 
 export default router;

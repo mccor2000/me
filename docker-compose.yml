@@ -38,7 +38,7 @@ services:
     working_dir: /app/client
     command: npm run dev
     ports: 
-      - '8000:8000'
+      - '8000:1234'
 
   cli:
     image: node:lts

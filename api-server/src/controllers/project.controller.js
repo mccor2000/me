@@ -1,31 +1,48 @@
-export const getAllProjects = async (req, res) => {
-  res.json({ route: req.originalUrl });
-};
+import { ProjectService } from '../services';
+import { wrapper } from '../utils';
 
-export const addProject = async (req, res) => {
-  res.json({ route: req.originalUrl });
-};
+export const getAllProjects = wrapper(async (req, res) => {
+  const projects = await ProjectService.getMany();
+  console.log(projects);
 
-export const getProject = async (req, res) => {
-  res.json({ route: req.originalUrl });
-};
+  res.json({ data: projects });
+});
 
-export const updateProject = async (req, res) => {
-  res.json({ route: req.originalUrl });
-};
+export const createProject = wrapper(async (req, res) => {
+  const project = await ProjectService.createOne(req.body);
 
-export const deleteProject = async (req, res) => {
-  res.json({ route: req.originalUrl });
-};
+  res.json({ data: project });
+});
 
-export const getFile = async (req, res) => {
-  res.json({ route: req.originalUrl });
-};
+export const getProject = wrapper(async (req, res) => {
+  const project = await ProjectService.getOne(req.params.id);
 
-export const feedback = async (req, res) => {
-  res.json({ route: req.originalUrl });
-};
+  res.json({ data: project });
+});
 
-export const comment = async (req, res) => {
+export const updateProject = wrapper(async (req, res) => {
+  const updatedProject = await ProjectService.updateOne(
+    req.params.id,
+    req.body
+  );
+
+  res.json({ data: updatedProject });
+});
+
+export const deleteProject = wrapper(async (req, res) => {
+  const removedProject = await ProjectService.deleteOne(req.params.id);
+
+  res.json({ data: removedProject });
+});
+
+export const getFile = wrapper(async (req, res) => {
   res.json({ route: req.originalUrl });
-};
+});
+
+export const feedback = wrapper(async (req, res) => {
+  res.json({ route: req.originalUrl });
+});
+
+export const comment = wrapper(async (req, res) => {
+  res.json({ route: req.originalUrl });
+});

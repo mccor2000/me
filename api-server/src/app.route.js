@@ -2,7 +2,7 @@ import { Router } from 'express';
 import {
   getAllProjects,
   getProject,
-  addProject,
+  createProject,
   updateProject,
   deleteProject,
   getFile,
@@ -19,7 +19,7 @@ router.use('/hello', async (_req, res) => {
   res.send('hello world');
 });
 
-router.route('/projects').get(getAllProjects).post(addProject);
+router.route('/projects').get(getAllProjects).post(createProject);
 router
   .route('/projects/:id')
   .get(getProject)

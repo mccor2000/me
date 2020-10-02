@@ -1,5 +1,14 @@
 import app from './app';
+import mongoose from 'mongoose';
 
-app.listen((process.env.PORT = 3000), () => {
-  console.log(`server is up and running..`);
-});
+(async app => {
+  await mongoose.connect(process.env.MONGODB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: true
+  });
+
+  app.listen((process.env.PORT = 3000), () => {
+    console.log(`server is up and running..`);
+  });
+})(app);

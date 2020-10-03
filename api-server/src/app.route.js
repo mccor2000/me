@@ -5,8 +5,6 @@ import {
   createProject,
   updateProject,
   deleteProject,
-  getFile,
-  comment,
   feedback,
   getAllQnAs,
   addQnA,
@@ -26,8 +24,6 @@ router
   .put(updateProject)
   .delete(deleteProject);
 router.route('/projects/:id/feedback').post(feedback);
-router.route('/projects/:id/file/:id').get(getFile);
-router.route('/projects/:id/file/:id/comment').post(comment);
 
 router.route('/qna').get(getAllQnAs).post(addQnA);
 router.route('/qna/:id').put(updateQnA);

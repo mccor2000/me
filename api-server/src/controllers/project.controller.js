@@ -3,7 +3,6 @@ import { wrapper } from '../utils';
 
 export const getAllProjects = wrapper(async (req, res) => {
   const projects = await ProjectService.getMany();
-  console.log(projects);
 
   res.json({ data: projects });
 });
@@ -35,14 +34,8 @@ export const deleteProject = wrapper(async (req, res) => {
   res.json({ data: removedProject });
 });
 
-export const getFile = wrapper(async (req, res) => {
-  res.json({ route: req.originalUrl });
-});
-
 export const feedback = wrapper(async (req, res) => {
-  res.json({ route: req.originalUrl });
-});
+  const feedback = await ProjectService.feedback(req.params.id, req.body);
 
-export const comment = wrapper(async (req, res) => {
-  res.json({ route: req.originalUrl });
+  res.json({ data: feedback });
 });

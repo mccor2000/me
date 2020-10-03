@@ -12,7 +12,27 @@ export const ProjectSchema = new Schema(
       required: true
     },
 
-    tree: Object
+    githubUrl: {
+      type: String,
+      required: true
+    },
+
+    feedback: [
+      {
+        name: {
+          type: String,
+          required: true
+        },
+        title: {
+          type: String,
+          required: true
+        },
+        detail: {
+          type: String,
+          required: true
+        }
+      }
+    ]
   },
   { timestamps: true }
 );

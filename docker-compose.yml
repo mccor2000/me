@@ -19,7 +19,7 @@ services:
       - db
     environment:
       - NODE_ENV=development
-      - MONGODB_URL=mongodb://db:27017/programmser_home
+      - MONGODB_URL=mongodb://db:27017/programmers_home
     volumes:
       - .:/app
       - node_modules:/app/node_modules
